@@ -1,0 +1,20 @@
+{
+    "cliente": {
+        "cpf": "varchar(11)",
+        "nome": "varchar(50)",
+        "hasMany": "locacao"
+    },
+    "locacao": {
+        "codigo": "integer",
+        "data_inicio": "varchar(45)",
+        "data_fim": "varchar(45)",
+        "valor_total": "decimal"
+    },
+    "veiculo": {
+        "renavam": "varchar(45)",
+        "marca": "varchar(45)",
+        "modelo": "varchar(45)",
+        "valor_diaria": "decimal",
+        "hasMany": "locacao"
+    }
+}
