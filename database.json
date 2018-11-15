@@ -8,8 +8,8 @@
         "data_inicio": "varchar(45)",
         "data_fim": "varchar(45)",
         "valor_total": "decimal",
-        "hasOne": "cliente",
-        "hasOne": "veiculo"
+        "hasOne": "veiculo",
+        "hasOne": "cliente"
     },
     "veiculo": {
         "renavam": "varchar(45)",

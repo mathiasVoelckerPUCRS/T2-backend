@@ -22,7 +22,7 @@ class ClienteController {
           let data = {
             'cliente':[{'id':req.body.id, 'cpf':req.body.cpf, 'nome':req.body.nome }]
           }
-          await this.yamaform.update(data)
+          awaitthis.yamaform.update(data)
           res.redirect('/cliente')
         })
     }
