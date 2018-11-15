@@ -19,6 +19,15 @@ generateTables = async () => {
   }
 
 // generateTables();
+
+//HOME
+app.get('/', async(req, res) => {
+  res.set('Content-Type', 'text/html');                
+  res.send(new Buffer(
+    BaseView.render('<h1>Welcome to T2-Construção</h1>')
+    ));
+}) 
+
 const clienteView = new BaseView(app, yamaform, 'cliente')
 const locacaoView = new BaseView(app, yamaform, 'locacao');
 
