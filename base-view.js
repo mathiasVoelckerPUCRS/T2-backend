@@ -55,6 +55,16 @@ class BaseView {
                 ));
               });
           }
-    }
 
+        async getEditForm() {
+          this.app.get(`/${this.objectName}/:id`, async(req,res) => {
+            let form = await this.yamaform.generateForm(this.objectName, {'method':'put', 'action':`/${this.objectName}/update`, 'id':req.params.id, ...this.formClasses})
+            res.set('Content-Type', 'text/html');
+            res.send(new Buffer(
+              this.render(
+              `<div class="row"><div class="col-md-12">${form}</div></div>`
+            )));  
+          })
+        }
+    }
     module.exports = BaseView

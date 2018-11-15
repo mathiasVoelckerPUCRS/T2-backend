@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const Yamaform = require('yamaform');
 const dbConfig = require('./config');
 const BaseView = require('./base-view.js');
+const ClienteController = require('./controller/cliente-controller.js');
 
 const yamaform = new Yamaform(dbConfig, `${__dirname}/database.json`);
 
@@ -20,18 +21,13 @@ generateTables = async () => {
 const clienteView = new BaseView(app, yamaform, 'cliente')
 
 clienteView.getTable();
-
 clienteView.getForm();
+clienteView.getEditForm();
 
+const clienteController = new ClienteController(app, yamaform);
 
-app.post('/cliente', async(req,res) => {
-  let data = {
-    "cliente":[
-       {"cpf":req.body.cpf, "nome":req.body.nome },
-    ]
- }
-  let table = await yamaform.insert(data);
-  res.redirect('/cliente')
-});
+clienteController.createCliente();
+clienteController.updateCliente();
+clienteController.deleteCliente();
 
 module.exports = app;
