@@ -22,7 +22,7 @@ class ClienteController {
           let data = {
             'cliente':[{'id':req.body.id, 'cpf':req.body.cpf, 'nome':req.body.nome }]
           }
-          awaitthis.yamaform.update(data)
+          await this.yamaform.update(data)
           res.redirect('/cliente')
         })
     }
@@ -32,7 +32,10 @@ class ClienteController {
           let data = {
             "cliente":[{"where":`id = ${req.params.id}`}]
           }
-          await this.yamaform.remove(data)
+          let response = await this.yamaform.remove(data)
+          if (response === undefined) {
+            res.status(500).send("Não foi possível deletar o cliente");
+          }
           res.redirect('/cliente')
         });
     }

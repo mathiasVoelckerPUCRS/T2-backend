@@ -34,6 +34,9 @@ class BaseView {
                   +  '<li class="nav-item">'
                   +    '<a class="nav-link" href="/locacao">Locacao</a>'
                   +  '</li>'
+                  +  '<li class="nav-item">'
+                  +    '<a class="nav-link" href="/veiculo">Veiculo</a>'
+                  +  '</li>'
                   + '</ul>'
                   + '</div>'
                   +'</nav>'
@@ -42,15 +45,6 @@ class BaseView {
                   +'</body>'
                   +'</html>' 
           }
-        
-          // async getHome() {
-          //   this.app.get('/', async (req, res) => {
-          //     res.set('Content-Type', 'text/html');                
-          //     res.send(new Buffer(
-          //       render('')
-          //     ));
-          //   })
-          // }
 
           async getTable() {
               this.app.get(`/${this.objectName}`, async (req, res) => {

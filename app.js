@@ -10,6 +10,7 @@ const dbConfig = require('./config');
 const BaseView = require('./base-view.js');
 const ClienteController = require('./controller/cliente-controller.js');
 const LocacaoController = require('./controller/locacao-controller.js');
+const VeiculoController = require('./controller/veiculo-controller.js');
 
 const yamaform = new Yamaform(dbConfig, `${__dirname}/database.json`);
 
@@ -20,7 +21,7 @@ generateTables = async () => {
 
 // generateTables();
 
-//HOME
+// HOME
 app.get('/', async(req, res) => {
   res.set('Content-Type', 'text/html');                
   res.send(new Buffer(
@@ -30,6 +31,10 @@ app.get('/', async(req, res) => {
 
 const clienteView = new BaseView(app, yamaform, 'cliente')
 const locacaoView = new BaseView(app, yamaform, 'locacao');
+const veiculoView = new BaseView(app, yamaform, 'veiculo');
+const clienteController = new ClienteController(app, yamaform);
+const locacaoController = new LocacaoController(app, yamaform);
+const veiculoController = new VeiculoController(app, yamaform);
 
 clienteView.getTable();
 clienteView.getForm();
@@ -39,12 +44,19 @@ locacaoView.getTable();
 locacaoView.getForm();
 locacaoView.getEditForm();
 
-const clienteController = new ClienteController(app, yamaform);
-const locacaoController = new LocacaoController(app, yamaform);
+veiculoView.getTable();
+veiculoView.getForm();
+veiculoView.getEditForm();
 
 clienteController.createCliente();
 clienteController.updateCliente();
 clienteController.deleteCliente();
 locacaoController.createLocacao();
+locacaoController.updateLocacao();
+locacaoController.deleteLocacao();
+veiculoController.createVeiculo();
+veiculoController.updateVeiculo();
+veiculoController.deleteVeiculo();
+
 
 module.exports = app;

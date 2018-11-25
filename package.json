@@ -11,6 +11,6 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "yamaform": "^2.6.2"
+    "yamaform": "^2.7.2"
   }
 }
