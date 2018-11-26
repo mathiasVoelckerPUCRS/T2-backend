@@ -1,5 +1,7 @@
 class VeiculoController {
 
+    // Controller que define os métodos de criar, atualizar e deletar Veiculo
+
     constructor(app, yamaform) {
         this.app = app;
         this.yamaform = yamaform;

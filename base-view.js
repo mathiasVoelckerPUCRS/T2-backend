@@ -1,5 +1,8 @@
 class BaseView {
 
+  /* Classe genérica que retorna o layout padrão do sistema, 
+   a tabela e formulário de cadastro e edição */
+
     constructor(app, yamaform, objectName) {
         this.app = app;
         this.yamaform = yamaform;
@@ -13,37 +16,38 @@ class BaseView {
           }
       }
 
+      // retorna html básico e header
         static render(html) {
             return '<html>'
-                  +'<head>'
-                  +'<title>T2 Construção</title>'
-                  +'<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">'
-                  +'</head>'
-                  +'<body>'
-                  +'<div class="container">'
-                  +'<nav class="navbar navbar-default" role="navigation">'
-                  +'<div class="container-fluid">'
-                  +'<div class="navbar-header">'
-                  +'<a class="navbar-brand" href="/">T2 Construção</a>'
-                  +'</div>'
-                  + '<div class="collapse navbar-collapse" id="navbarSupportedContent">'
-                  + '<ul class="nav navbar-nav mr-auto">'
-                  +  '<li class="nav-item">'
-                  +    '<a class="nav-link" href="/cliente">Cliente</a>'
-                  +  '</li>'
-                  +  '<li class="nav-item">'
-                  +    '<a class="nav-link" href="/locacao">Locacao</a>'
-                  +  '</li>'
-                  +  '<li class="nav-item">'
-                  +    '<a class="nav-link" href="/veiculo">Veiculo</a>'
-                  +  '</li>'
-                  + '</ul>'
+                  + '<head>'
+                  + '<title>T2 Construção</title>'
+                  + '<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">'
+                  + '</head>'
+                  + '<body>'
+                  + '<div class="container">'
+                  + '<nav class="navbar navbar-default" role="navigation">'
+                  + '<div class="container-fluid">'
+                  + '<div class="navbar-header">'
+                  + '<a class="navbar-brand" href="/">T2 Construção</a>'
                   + '</div>'
-                  +'</nav>'
-                  +html
-                  +'</div>'
-                  +'</body>'
-                  +'</html>' 
+                  +  '<div class="collapse navbar-collapse" id="navbarSupportedContent">'
+                  +  '<ul class="nav navbar-nav mr-auto">'
+                  +   '<li class="nav-item">'
+                  +     '<a class="nav-link" href="/cliente">Cliente</a>'
+                  +   '</li>'
+                  +   '<li class="nav-item">'
+                  +     '<a class="nav-link" href="/locacao">Locacao</a>'
+                  +   '</li>'
+                  +   '<li class="nav-item">'
+                  +     '<a class="nav-link" href="/veiculo">Veiculo</a>'
+                  +   '</li>'
+                  +  '</ul>'
+                  +  '</div>'
+                  + '</nav>'
+                  + html
+                  + '</div>'
+                  + '</body>'
+                  + '</html>' 
           }
 
           async getTable() {

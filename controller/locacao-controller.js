@@ -1,17 +1,11 @@
-const BaseView = require('../base-view.js');
 
 class LocacaoController {
+
+    // Controller que define os métodos de criar, atualizar e deletar Locacao
 
     constructor(app, yamaform) {
         this.app = app;
         this.yamaform = yamaform;
-        this.formClasses = {
-            'formClass':'', 
-            'labelClass':'', 
-            'inputClass':'form-control',
-            'inputWrthis.apperClass':'form-group', 
-            'buttonClass':'btn btn-default pull-right'
-          }
     }
 
     async createLocacao() {
@@ -75,21 +69,6 @@ class LocacaoController {
         res.redirect('/locacao')
       });
   }
-
-    // async getForm() {
-    //     this.app.get('/locacao/new', async (req, res) => {
-      
-    //       let form = await this.yamaform.generateForm('locacao', {'method':'post', 'action':'/locacao', ...this.formClasses})
-          
-    //     //   form += "<div><label for='veiculo'>Veiculo</label> <input type='number' name='veiculo' id='veiculo' class='form-control'> </div>"
-    //       res.set('Content-Type', 'text/html');
-    //       res.send(new Buffer(
-    //         BaseView.render(
-    //           `<div class="row"><div class="col-md-12">${form}</div></div>`
-    //         )
-    //       ));
-    //     });
-    // }
 }
 
 module.exports = LocacaoController

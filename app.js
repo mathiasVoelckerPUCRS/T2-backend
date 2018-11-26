@@ -1,10 +1,13 @@
 const express = require('express');
+
+// utilizar biblioteca express para recursos de aplicativos web
 const app = express();
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// importar API criada por colegas
 const Yamaform = require('yamaform');
 const dbConfig = require('./config');
 const BaseView = require('./base-view.js');
@@ -29,6 +32,7 @@ app.get('/', async(req, res) => {
     ));
 }) 
 
+// inicializar atributos que acessam classes View e Controller
 const clienteView = new BaseView(app, yamaform, 'cliente')
 const locacaoView = new BaseView(app, yamaform, 'locacao');
 const veiculoView = new BaseView(app, yamaform, 'veiculo');
@@ -51,9 +55,11 @@ veiculoView.getEditForm();
 clienteController.createCliente();
 clienteController.updateCliente();
 clienteController.deleteCliente();
+
 locacaoController.createLocacao();
 locacaoController.updateLocacao();
 locacaoController.deleteLocacao();
+
 veiculoController.createVeiculo();
 veiculoController.updateVeiculo();
 veiculoController.deleteVeiculo();

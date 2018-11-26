@@ -1,5 +1,7 @@
 class ClienteController {
 
+    // Controller que define os métodos de criar, atualizar e deletar Cliente
+
     constructor(app, yamaform) {
         this.app = app;
         this.yamaform = yamaform;
