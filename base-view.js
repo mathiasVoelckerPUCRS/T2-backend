@@ -49,7 +49,7 @@ class BaseView {
                   + '</body>'
                   + '</html>' 
           }
-
+          // retorna tabela para visualizacao dos dados cadastrados
           async getTable() {
               this.app.get(`/${this.objectName}`, async (req, res) => {
              
@@ -63,7 +63,7 @@ class BaseView {
                 ));
               });
           }
-        
+         // retorna formulario para cadastro de novos dados
           async getForm() {
               this.app.get(`/${this.objectName}/new`, async (req, res) => {
             
@@ -77,7 +77,7 @@ class BaseView {
                 ));
               });
           }
-
+        // retorna formulario para edicao de dados ja cadastrados
         async getEditForm() {
           this.app.get(`/${this.objectName}/:id`, async(req,res) => {
             let form = await this.yamaform.generateForm(this.objectName, {'method':'put', 'action':`/${this.objectName}/update`, 'id':req.params.id, ...this.formClasses})
