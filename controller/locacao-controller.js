@@ -7,7 +7,7 @@ class LocacaoController {
         this.app = app;
         this.yamaform = yamaform;
     }
-
+    // cria locacao com dados recebidos do formulario
     async createLocacao() {
         this.app.post('/locacao', async(req,res) => {
             let data = {
@@ -29,7 +29,7 @@ class LocacaoController {
             res.redirect('/locacao')
           });
     }
-
+    // atualiza dados de uma locacao a partir de dados modificados no formulario
     async updateLocacao() {
       this.app.post('/locacao/update', async(req,res) => {
         let data = {
@@ -56,7 +56,7 @@ class LocacaoController {
         }
       })
   }
-  
+  // deleta locacao solicitada
   async deleteLocacao() {
       this.app.get('/locacao/delete/:id', async(req,res) => {
         let data = {
