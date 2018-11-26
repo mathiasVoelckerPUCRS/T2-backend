@@ -6,7 +6,7 @@ class ClienteController {
         this.app = app;
         this.yamaform = yamaform;
     }
-
+    // cria cliente com dados recebidos do formulario
     async createCliente() {
         this.app.post('/cliente', async(req,res) => {
             let data = {
@@ -18,7 +18,7 @@ class ClienteController {
             res.redirect('/cliente')
           });
     }
-    
+    // atualiza dados do cliente a partir de dados modificados no formulario
     async updateCliente() {
         this.app.post('/cliente/update', async(req,res) => {
           let data = {
@@ -28,7 +28,7 @@ class ClienteController {
           res.redirect('/cliente')
         })
     }
-    
+    // deleta cliente solicitado 
     async deleteCliente() {
         this.app.get('/cliente/delete/:id', async(req,res) => {
           let data = {
