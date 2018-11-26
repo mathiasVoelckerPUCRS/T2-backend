@@ -6,7 +6,7 @@ class VeiculoController {
         this.app = app;
         this.yamaform = yamaform;
     }
-
+    // cria veiculo com dados recebidos do formulario
     async createVeiculo() {
         this.app.post('/veiculo', async(req,res) => {
             let data = {
@@ -23,7 +23,7 @@ class VeiculoController {
             res.redirect('/veiculo')
           });
     }
-    
+    // atualiza dados de um veiculo a partir de dados modificados no formulario
     async updateVeiculo() {
         this.app.post('/veiculo/update', async(req,res) => {
           let data = {
@@ -39,7 +39,7 @@ class VeiculoController {
           res.redirect('/veiculo')
         })
     }
-    
+     // deleta veiculo solicitado
     async deleteVeiculo() {
         this.app.get('/veiculo/delete/:id', async(req,res) => {
           let data = {
